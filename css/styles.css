@@ -1,0 +1,114 @@
+/* Base Styles */
+:root {
+    --primary-color: #6065AA;
+    --hover-color: #373A5E;
+    --active-color: #373A5E;
+    --text-light: #ffffff;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 220px;
+    background-color: var(--primary-color);
+    flex-shrink: 0;
+    position: relative;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Page-Specific Sidebar Colors */
+  .home-page .sidebar { background-color: #6065AA; }
+  .task-map-page .sidebar { background-color: #6065AA; }
+  .organization-page .sidebar { background-color: #6065AA; }
+  .reports-page .sidebar { background-color: #6065AA; }
+  .calendar-page .sidebar { background-color: #6065AA; }
+  
+  /* Logo Area */
+  .logo-container {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .logo-img {
+    max-width: 125px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Navigation Menu */
+  .nav-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+  }
+  
+  .nav-item a {
+    display: block;
+    color: var(--text-light);
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-transform: capitalize;
+  }
+  
+  .nav-item a:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .nav-item a.active {
+    background-color: var(--active-color);
+    font-weight: bold;
+  }
+  
+  /* User Info Section */
+  .user-info {
+    padding: 15px;
+    color: var(--text-light);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .user-info-container {
+    margin-top: auto; /* Pushes the container to the bottom */
+    width: 100%;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .user-name {
+    font-size: 14px;
+    flex-grow: 1;
+  }
+  
+  /* Main Content Area */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background: #f5f5f5;
+    min-height: 100vh;
+  }
