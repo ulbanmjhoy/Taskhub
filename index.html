@@ -1,38 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Task Distribution Software</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2d3748; /* Gray-800 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+        }
+        .left-panel {
+            background-color: #2b6cb0; /* Blue-900 */
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        .left-panel img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+            z-index: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        .input-field {
+            margin-bottom: 15px;
+        }
+        .input-field input, .input-field select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background-color: #2c5282; /* Blue-700 */
+            color: white;
+        }
+        .input-field select option {
+            background-color: #2c5282;
+            color: white;
+        }
+        .button {
+            background-color: #3182ce; /* Blue-600 */
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .right-panel {
+            background-color: #2b6cb0; /* Blue-700 */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        .radio-option input {
+            margin-right: 5px;
+        }
+    </style>
 </head>
-<body class="home-page">
-  <aside class="sidebar" role="navigation">
-    <div class="logo-container" role="banner">
-      <img src="images/logo.png" alt="Company Logo" class="logo-img">
-    </div>
-    
-    <nav aria-label="Main navigation">
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="index.html" class="active">Home</a></li>
-        <li class="nav-item"><a href="task-map.html">Task Map</a></li>
-        <li class="nav-item"><a href="organization.html">Organization</a></li>
-        <li class="nav-item"><a href="reports.html">Reports</a></li>
-        <li class="nav-item"><a href="calendar.html">Calendar</a></li>
-      </ul>
-    </nav>
-    
-    <div class="user-info-container">
-        <div class="user-info" role="contentinfo">
-          <img src="images/avatar.png" alt="User Avatar" class="user-avatar">
-          <span class="user-name">Administrator</span>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <img src="https://storage.googleapis.com/a1aa/image/b7DpXfxaBr1OnBcEreewsVfvFHcY48n8_pA9hBfUr1Q.jpg" alt="Background image"/>
+            <div class="content">
+                <h1>Task <span style="color: yellow;">hub</span> Task Distribution Software</h1>
+                <h2>Login To Your Account</h2>
+                <form id="loginForm" action="worker-page.html" method="get">
+                    <div class="input-field">
+                        <input type="text" name="username" placeholder="Email/Username:" required/>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="password" placeholder="Password:" required/>
+                    </div>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="userType" value="worker" checked onchange="document.getElementById('loginForm').action = 'worker-page.html'"/> Worker
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="userType" value="admin" onchange="document.getElementById('loginForm').action = 'admin-page.html'"/> Administrator
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="rememberMe"/> Remember me
+                        </label>
+                        <a href="#" style="color: white;">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="button">LOGIN</button>
+                </form>
+                <div style="text-align: center; margin: 20px 0;">OR</div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h2>New Here?</h2>
+            <p>Sign up to get started</p>
+            <button class="button">SIGN UP</button>
         </div>
     </div>
-  </aside>
-
-  <main class="main-content">
-    <h1>Welcome to the Home Page</h1>
-    <p>This is the main content area.</p>
-  </main>
 </body>
 </html>
