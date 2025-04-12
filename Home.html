@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskHub - Home</title>
+
+  <link rel="stylesheet" href="styles.css" />
+<style>
+/* Global Styles */
+:root {
+  --primary-color: #6065AA;
+  --hover-color: #373A5E;
+  --active-color: #373A5E;
+  --text-light: #ffffff;
+  --card-bg: #ffffff;
+  --task-progress-color: #666cc4; /* Daily Task Progress */
+  --notification-color: #6569bc; /* Notification */
+  --worker-status-color: #bcc2cd; /* Worker Status */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background-color: #f1f1f1;
+}
+
+/* Wrapper to hold both sidebar and content */
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px 0;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  max-width: 40px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-left: 10px;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item a {
+  display: block;
+  color: var(--text-light);
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.nav-item a:hover {
+  background-color: var(--hover-color);
+}
+
+.nav-item a.active {
+  background-color: var(--active-color);
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: var(--text-light);
+  margin-top: auto;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 220px;
+  padding: 40px;
+  width: calc(100% - 220px);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #333;
+}
+
+.task-progress {
+  background-color: var(--task-progress-color);
+  color: white;
+}
+
+.notification {
+  background-color: var(--notification-color);
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttons button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #38f9d7, #0b82ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  opacity: 0.9;
+}
+
+.worker-status {
+  background-color: var(--worker-status-color);
+  color: #333;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <img src="https://i.ibb.co/0VF51kCH/Screenshot-2025-04-08-013014.png" alt="Screenshot-2025-04-08-013014" alt="Logo" class="logo-img" />
+        <span class="logo-text">Task Hub</span>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#" class="active">Home</a></li>
+          <li class="nav-item"><a href="#">Task Map</a></li>
+          <li class="nav-item"><a href="#">Organization</a></li>
+          <li class="nav-item"><a href="#">Reports</a></li>
+          <li class="nav-item"><a href="#">Calendar</a></li>
+        </ul>
+      </nav>
+
+      <div class="user-info">
+        <img src="https://i.ibb.co/qY5pWFHh/Screenshot-2025-04-08-020748.png" alt="Screenshot-2025-04-08-020748" alt="User Avatar" class="user-avatar" />
+        <span class="user-name">Administrator</span>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div class="dashboard-grid">
+        <div class="card task-progress">
+          <h2>Daily Task Progress</h2>
+          <p>Ongoing: 5/10</p>
+          <p>Completed: 3</p>
+        </div>
+
+        <div class="card notification">
+          <h2>Notification</h2>
+          <p>Worker sent a message:</p>
+          <p><em>"Need to fix toilet in College of Engineering"</em></p>
+        </div>
+
+        <div class="card buttons">
+          <button>Create New Task</button>
+          <button>Update Task</button>
+          <button>Profiles</button>
+        </div>
+
+        <div class="card worker-status">
+          <h2>Worker Status</h2>
+          <p>Active: 8</p>
+          <p>Available: 3</p>
+          <p>On Leave: 3</p>
+          <p>Total: 11</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
