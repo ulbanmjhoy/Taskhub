@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen flex items-center justify-center">
+    <div class="flex w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="w-1/2 p-6 flex flex-col">
+            <div class="flex items-center mb-4">
+                <img alt="Taskhub/images/logo.png" class="h-12 w-12" src="LOGO"/>
+                <div class="flex items-center bg-black p-2">
+                    <span class="text-white text-lg font-semibold">Task</span>
+                    <span class="bg-yellow-500 text-black text-lg font-semibold px-2">hub</span>
+                </div>
+                <span class="text-black text-lg font-bold ml-2">Task Distribution Software</span>
+            </div>
+
+            <h2 class="text-black text-3xl font-bold mb-4">Login To Your Account</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="email" class="block text-black text-sm mb-2">Email/Username:</label>
+                    <input type="text" id="email" placeholder="Email/Username" class="w-full p-3 rounded-lg bg-blue-100 text-black placeholder-gray-500">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-black text-sm mb-2">Password:</label>
+                    <div class="relative">
+                        <input type="password" id="password" placeholder="Password" class="w-full p-3 rounded-lg bg-blue-100 text-black placeholder-gray-500">
+                        <i class="fas fa-eye absolute right-3 top-3 text-black cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <label class="flex items-center text-black">
+                        <input type="checkbox" class="mr-2"> Remember me
+                    </label>
+                    <a href="#" class="text-black">Forgot Password?</a>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg font-bold">LOGIN</button>
+            </form>
+            <div class="text-center text-black my-4">OR</div>
+            <div class="flex justify-center space-x-4 mb-4">
+                <p class="text-black">Login Using Your Social Networks</p>
+            </div>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-blue-500 text-3xl"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-pink-500 text-3xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-yellow-500 text-3xl"><i class="fab fa-google"></i></a>
+            </div>
+        </div>
+        <div class="w-1/2 p-6 flex flex-col items-center justify-center bg-blue-900 bg-opacity-50">
+            <h2 class="text-white text-3xl font-bold mb-4">New Here?</h2>
+            <p class="text-white mb-4">Sign up to get started</p>
+            <button class="bg-blue-500 text-white p-3 rounded-lg font-bold">SIGN UP</button>
+        </div>
+    </div>
+</body>
+</html>
