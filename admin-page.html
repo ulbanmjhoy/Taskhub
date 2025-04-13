@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Map</title>
+  <title>Home</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="organization-page">
+<body class="home-page">
   <aside class="sidebar" role="navigation">
     <div class="logo-container" role="banner">
       <img src="images/logo.png" alt="Company Logo" class="logo-img">
@@ -14,9 +14,9 @@
     
     <nav aria-label="Main navigation">
       <ul class="nav-menu">
-        <li class="nav-item"><a href="admin-page.html">Home</a></li>
+        <li class="nav-item"><a href="admin-page.html" class="active">Home</a></li>
         <li class="nav-item"><a href="task-map.html">Task Map</a></li>
-        <li class="nav-item"><a href="organization.html" class="active">Organization</a></li>
+        <li class="nav-item"><a href="organization.html">Organization</a></li>
         <li class="nav-item"><a href="reports.html">Reports</a></li>
         <li class="nav-item"><a href="calendar.html">Calendar</a></li>
       </ul>
@@ -31,8 +31,34 @@
   </aside>
 
   <main class="main-content">
-    <h1>Organization</h1>
-    <p>This is the task map content area.</p>
+    <div class="dashboard-grid">
+      <div class="card task-progress">
+        <h2>Daily Task Progress</h2>
+        <p>Ongoing: 5/10</p>
+        <p>Completed: 3</p>
+      </div>
+
+      <div class="card notification">
+        <h2>Notification</h2>
+        <p>Worker sent a message:</p>
+        <p><em>"Need to fix toilet in College of Engineering"</em></p>
+      </div>
+
+      <div class="card buttons">
+        <button>Create New Task</button>
+        <button>Update Task</button>
+        <button>Profiles</button>
+      </div>
+
+      <div class="card worker-status">
+        <h2>Worker Status</h2>
+        <p>Active: 8</p>
+        <p>Available: 3</p>
+        <p>On Leave: 3</p>
+        <p>Total: 11</p>
+      </div>
+    </div>
   </main>
+</div>
 </body>
 </html>

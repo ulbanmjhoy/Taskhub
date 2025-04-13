@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update Task | Task Hub</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    :root {
+      --primary-color: #6065AA;
+      --hover-color: #373A5E;
+      --active-color: #373A5E;
+      --text-light: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 220px;
+      background-color: var(--primary-color);
+      flex-shrink: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-container {
+      padding: 20px;
+      text-align: center;
+      color: var(--text-light);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-img {
+      max-width: 50px;
+      height: auto;
+      display: block;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--text-light);
+    }
+
+    .nav-menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      flex-grow: 1;
+    }
+
+    .nav-item a {
+      display: block;
+      color: var(--text-light);
+      padding: 12px 20px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      text-transform: capitalize;
+    }
+
+    .nav-item a:hover {
+      background-color: var(--hover-color);
+    }
+
+    .nav-item a.active {
+      background-color: var(--active-color);
+      font-weight: bold;
+    }
+
+    .user-info-container {
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .user-info {
+      padding: 15px;
+      color: var(--text-light);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .user-name {
+      font-size: 14px;
+      flex-grow: 1;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 0;
+      background: #b7cdf6;
+      min-height: 100vh;
+    }
+
+    /* Create Task Header */
+    .task-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+      background-color: #373A5E;
+      padding: 15px 25px;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .back-arrow {
+      font-size: 20px;
+    }
+
+    .task-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #cbdafc;
+      padding: 30px 20px;
+    }
+
+    .task-form {
+      flex: 1;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .input-full {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 25px;
+      border: 1px solid #333;
+      background: linear-gradient(to right, #dcdcdc, #ffffff);
+      font-size: 14px;
+    }
+
+    .input-textarea {
+      height: 80px;
+      resize: none;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .input-half {
+      flex: 1;
+      padding: 12px 15px;
+      border-radius: 25px;
+      border: 1px solid #333;
+      background: linear-gradient(to right, #dcdcdc, #ffffff);
+      font-size: 14px;
+    }
+
+    .create-task-btn {
+      align-self: flex-start;
+      background: linear-gradient(to right, #4de3ff, #0047ab);
+      color: #ffffff;
+      font-weight: bold;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .worker-status {
+      background: linear-gradient(to bottom right, #d6dee8, #f4f5f7);
+      border-radius: 20px;
+      padding: 20px;
+      margin-left: 30px;
+      min-width: 180px;
+      height: fit-content;
+      font-weight: bold;
+      font-size: 14px;
+      color: #4a4a4a;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .worker-status p {
+      margin: 5px 0;
+      font-weight: normal;
+    }
+
+    @media (max-width: 900px) {
+      .task-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .worker-status {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+
+      .input-row {
+        flex-direction: column;
+      }
+
+      .input-half {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="organization-page">
+
+  <aside class="sidebar" role="navigation">
+    <div class="logo-container" role="banner">
+      <img src="https://i.ibb.co/0VF51kCH/Screenshot-2025-04-08-013014.png" alt="Screenshot-2025-04-08-013014" alt="TaskHub Logo" class="logo-img">
+      <span class="logo-text">Task Hub</span>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="task-map.html">Task Map</a></li>
+        <li class="nav-item"><a href="organization.html" class="active">Organization</a></li>
+        <li class="nav-item"><a href="reports.html">Reports</a></li>
+        <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-info-container">
+      <div class="user-info" role="contentinfo">
+        <img src="https://i.ibb.co/SwG8FnsM/Screenshot-2025-04-08-020748.png" alt="Screenshot-2025-04-08-020748" alt="User Avatar" class="user-avatar">
+        <span class="user-name">Administrator</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="task-header">
+      <span class="back-arrow">&lt;</span>
+      <h1>Update Task</h1>
+    </div>
+
+    <div class="task-container">
+      <form class="task-form">
+        <input type="text" placeholder="Task Title:" class="input-full" />
+        <textarea placeholder="Task Description:" class="input-full input-textarea"></textarea>
+
+        <div class="input-row">
+          <input type="text" placeholder="Assign to:" class="input-half" />
+          <input type="text" placeholder="Assign Task Address:" class="input-half" />
+        </div>
+        <div class="input-row">
+          <input type="text" placeholder="Set Date and Time:" class="input-half" />
+          <input type="text" placeholder="Task Priority:" class="input-half" />
+        </div>
+
+        <textarea placeholder="Additional Notes:" class="input-full input-textarea"></textarea>
+        <button type="submit" class="create-task-btn">UPDATE TASK</button>
+      </form>
+
+      <div class="worker-status">
+        <strong>Worker Status:</strong>
+        <p>Active: 8</p>
+        <p>Available: 3</p>
+        <p>On-leave: 3</p>
+        <p>Total: 11</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
